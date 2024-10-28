@@ -6,9 +6,9 @@ This repository contains the codes associated with the publication ___.
 The files were created by the author in the following order:
 * [Evap_DAE_Simulate](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_DAE_Simulate.ipynb) was used to simulate the Evaporator System using Pyomo DAE. This generated the [training](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_seed1.csv) and [validation](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_seed3_valid.csv) data.
 * The following files perform System Identification (SysID):
-  * [Evap_CVA_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_SysID.ipynb) trains a CVA model on the data. This outputs a saved [CVA model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_cva_sys.pkl).
-  * [Evap_MKCVA_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_SysID.ipynb) trains an MKCVA model on the data with hyper-parameter tuning. This outputs a saved [MKCVA model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_mkcva_sys3.pkl).
-  * [Evap_LSTM_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_LSTM_SysID.ipynb) trains an LSTM model on the data with hyper-parameter tuning. This outputs a saved [LSTM model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_lstm.keras).
+  * [Evap_CVA_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_SysID.ipynb) trains a CVA model, saved as [CVA model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_cva_sys.pkl).
+  * [Evap_MKCVA_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_SysID.ipynb) trains an MKCVA model with hyper-parameter tuning, saved as [MKCVA model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_mkcva_sys3.pkl).
+  * [Evap_LSTM_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_LSTM_SysID.ipynb) trains an LSTM model with hyper-parameter tuning, saved as [LSTM model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_lstm.keras).
 * We now run the Conservative MPC case:
   * [Evap_CVA_MPC_Conservative](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_MPC_Conservative.ipynb) uses the CVA model.
   * [Evap_MKCVA_MPC_Conservative](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_MPC_Conservative.ipynb) uses the MKCVA model.
