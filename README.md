@@ -1,6 +1,6 @@
 # Fast Nonlinear Data-driven MPC using MKCVA
 
-This repository contains the codes associated with the publication ___.
+This repository contains the codes for MKCVA-MPC.
 
 ## Usage
 The files were created by the author in the following order:
