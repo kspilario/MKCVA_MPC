@@ -1,6 +1,6 @@
 # Fast Nonlinear Data-driven MPC using MKCVA
 
-This repository contains the codes for MKCVA-MPC.
+This repository contains the codes associated with the manuscript: "Fast Nonlinear Data-driven Model Predictive Control using Mixed Kernel Canonical Variate Analysis". (Under Review)
 
 ## Usage
 The files were created by the author in the following order:
