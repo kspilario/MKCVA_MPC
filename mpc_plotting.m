@@ -1,4 +1,4 @@
-X2sp = 28;
+X2sp = 32;
 
 colloc_pts = [0, 0.155051, 0.644949, 1, 1.155051, 1.644949, ...
               2, 2.155051, 2.644949, 3, 3.155051, 3.644949, ...
@@ -27,6 +27,7 @@ for j = 1:21 % Iterate on each horizon
     clf; f = figure(1);
     tiledlayout(2, 3, 'TileSpacing', 'tight', ...
             'TileIndexing','columnmajor');
+    set(gcf, 'Position', [100, 300, 1272, 297]);
     set(gcf, 'Color', 'w');
     
     for k = 1:3 % Iterate on each model
@@ -50,7 +51,7 @@ for j = 1:21 % Iterate on each horizon
             'MarkerFaceColor','k','MarkerSize',3, ...
             'DisplayName','DAE Elapsed');
         ylabel('X2 (%)'); box on; grid on; 
-        xlim([0 30]); ylim([24 32]); title(sprintf('%s-MPC', str{k}));
+        xlim([0 30]); ylim([24 40]); title(sprintf('%s-MPC', str{k}));
         if k == 3, legend('-DynamicLegend','Location','eastoutside'); end
 
         nexttile;
@@ -60,7 +61,7 @@ for j = 1:21 % Iterate on each horizon
         stairs(t(1:j+1), all_data{k}.u_save([1:j, j], 3),'k', ...
             'LineWidth',1.5,'DisplayName','Elapsed Moves');
         ylabel('F3 (kg/min)');  box on; grid on;
-        xlim([0 30]); ylim([44 60]); xlabel('Time (min)');
+        xlim([0 30]); ylim([40 60]); xlabel('Time (min)');
         if k == 3, legend('-DynamicLegend','Location','eastoutside'); end
     end
 
