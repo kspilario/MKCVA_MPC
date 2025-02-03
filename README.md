@@ -13,7 +13,7 @@ The files were created by the author in the following order:
 * The following files perform Model Predictive Control (MPC):
   * [Evap_CVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_MPC.ipynb) uses the identified CVA model. Outputs are saved as json files, such as [cva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/cva_SPT32_p10_out.json). 
   * [Evap_MKCVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_MPC.ipynb) uses the identified MKCVA model. Outputs are saved as json files, such as [mkcva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/mkcva_SPT32_p10_out.json).
-  * [Eval_LSTM_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_LSTM_MPC.ipynb) uses the identified LSTM model. Outputs are saved as json files, such as [lstm_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/lstm_SPT32_p10_out.json).
+  * [Evap_LSTM_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_LSTM_MPC.ipynb) uses the identified LSTM model. Outputs are saved as json files, such as [lstm_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/lstm_SPT32_p10_out.json).
 * [MPC_plotting](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plotting.m) makes plots from the output json files from the MPC. Users can style the plot in any way.
 * We finally create GIF files to plot the MPC histories such as [compare_mpc_spt28](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_mpc_spt28.gif) for a setpoint of 28 and [compare_mpc_18](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_mpc_spt18.gif) for a setpoint of 18.
 
