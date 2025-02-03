@@ -1,4 +1,4 @@
-# Fast Nonlinear Data-driven MPC using MKCVA
+# Fast MKCVA for Learning-based NMPC
 
 This repository contains the codes associated with the manuscript: "Fast Mixed Kernel Canonical Variate Analysis for Learning-based Nonlinear Model Predictive Control". (Under Review)
 
@@ -9,7 +9,7 @@ The files were created by the author in the following order:
   * [Evap_CVA_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_SysID.ipynb) trains a CVA model, saved as [CVA model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_cva_sys.pkl).
   * [Evap_MKCVA_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_SysID.ipynb) trains an MKCVA model with hyper-parameter tuning, saved as [MKCVA model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_mkcva_sys3.pkl).
   * [Evap_LSTM_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_LSTM_SysID.ipynb) trains an LSTM model with hyper-parameter tuning, saved as [LSTM model](https://github.com/kspilario/MKCVA_MPC/blob/main/evap_lstm.keras).
-* We compare the identified models for interpolation and extrapolation abilities in [Evap_Compare_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_Compare_SysID.ipynb). Results are saved in [compare_sysID](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_sysID.csv)
+* We compare the identified models for interpolation and extrapolation abilities in [Evap_Compare_SysID](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_Compare_SysID.ipynb). Results are saved in [compare_sysID](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_sysID.csv).
 * The following files perform Model Predictive Control (MPC):
   * [Evap_CVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_MPC.ipynb) uses the identified CVA model. Outputs are saved as json files, such as [cva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/cva_SPT32_p10_out.json). 
   * [Evap_MKCVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_MPC.ipynb) uses the identified MKCVA model. Outputs are saved as json files, such as [mkcva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/mkcva_SPT32_p10_out.json).
