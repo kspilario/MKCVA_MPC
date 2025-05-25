@@ -17,23 +17,22 @@ mkcva_data = jsondecode(mkcva_file);
 lstm_file = fileread(sprintf('lstm_SPT%d_p10_out.json', X2sp));
 lstm_data = jsondecode(lstm_file);
 
-str = {'(a) CVA', '(b) MKCVA', '(c) LSTM'};
+str = {'CVA', 'MKCVA', 'LSTM'};
 all_data = {cva_data, mkcva_data, lstm_data};
 dark_g = [0.3216, 0.6549, 0.2118];
 close all;
 t = 0:30;
 
-clf; f = figure(1);
-tiledlayout(6, 3, 'TileSpacing', 'compact', ...
-        'TileIndexing','columnmajor');
-set(gcf, 'Color', 'w');
-fontsize(f, 8, 'points')
+gifFile = sprintf('compare_mpc_spt%d.gif', X2sp);
 
-ctr = 1;
-
-for k = 1:3 % Iterate on each model
-
-    for j = [5, 11, 21] % Iterate on each horizon
+for j = 1:21 % Iterate on each horizon
+    clf; f = figure(1);
+    tiledlayout(2, 3, 'TileSpacing', 'tight', ...
+            'TileIndexing','columnmajor');
+    set(gcf, 'Position', [100, 300, 1272, 297]);
+    set(gcf, 'Color', 'w');
+    
+    for k = 1:3 % Iterate on each model
 
         mdl_ipopt = (reshape(all_data{k}.ipopt_save(j, :), 3, [])'-0.5)...
                     .*[100, 100, 20] + [208, 194.7, 50];
@@ -46,23 +45,19 @@ for k = 1:3 % Iterate on each model
         hold on;
         plot(t([1 end]), [1 1]*X2sp,'r--', 'DisplayName','Setpoint');
         plot(colloc_pts+j-1, all_data{k}.dae_save(:, 3, j),'s-', ...
-            'MarkerSize',2,'MarkerFaceColor',dark_g,'Color',dark_g,...
+            'MarkerSize',3,'MarkerFaceColor',dark_g,'Color',dark_g,...
             'LineWidth',1.2,'DisplayName','DAE Prediction');
-        plot(t(j+(0:10)), mdl_save(3, :),'bx-','LineWidth',1, ...
-            'MarkerSize',4,'DisplayName','Surrogate Prediction');
+        plot(t(j+(0:10)), mdl_save(3, :),'bx-','LineWidth',1.2, ...
+            'DisplayName','Surrogate Prediction');
         plot(t(1:j), all_data{k}.y_noisy_save(1:j, 3), ...
             'Color', 0.5*[1 1 1], 'Marker','p','MarkerFaceColor', ...
             0.5*[1 1 1],'DisplayName','Noisy DAE Elapsed');
         plot(t(1:j), all_data{k}.y_pyomo_save(1:j, 3), 'ko-', ...
-            'MarkerFaceColor','k','MarkerSize',2, ...
+            'MarkerFaceColor','k','MarkerSize',3, ...
             'DisplayName','DAE Elapsed');
         ylabel('X2 (%)'); box on; grid on; 
-        xlim([0 30]); ylim(ylimX2);
-
-        if j == 5, title(sprintf('%s-MPC', str{k}), 'FontSize', 12); end
-        if k == 3 && j == 5
-            legend('-DynamicLegend','Location','eastoutside'); 
-        end
+        xlim([0 30]); ylim(ylimX2); title(sprintf('%s-MPC', str{k}));
+        if k == 3, legend('-DynamicLegend','Location','eastoutside'); end
 
         nexttile;
         last_u = all_data{k}.u_save(j, 3);
@@ -71,29 +66,22 @@ for k = 1:3 % Iterate on each model
             'DisplayName', 'Prediction Horizon'); 
         hold on;
         stairs(t(j+(0:10)), [last_u; mdl_ipopt([1:end, end], 3)],'m', ...
-            'LineWidth',1,'DisplayName','Predicted Moves');
+            'LineWidth',1.5,'DisplayName','Predicted Moves');
         stairs(t(1:j), all_data{k}.u_save(1:j, 3),'k', ...
-            'LineWidth',1,'DisplayName','Elapsed Moves');
+            'LineWidth',1.5,'DisplayName','Elapsed Moves');
         ylabel('F3 (kg/min)');  box on; grid on;
-        xlim([0 30]); ylim(ylimF3); 
-        if k == 3 && j == 5
-            legend('-DynamicLegend','Location','eastoutside');
-        end
+        xlim([0 30]); ylim(ylimF3); xlabel('Time (min)');
+        if k == 3, legend('-DynamicLegend','Location','eastoutside'); end
     end
-    xlabel('Time (min)');
+
+    frame = getframe(f); im = frame2im(frame); 
+    [imind,cm] = rgb2ind(im,256);
+
+    if j == 1
+        imwrite(imind, cm, gifFile, 'gif', ...
+            'DelayTime', 0.3, 'LoopCount', Inf);
+    else
+        imwrite(imind, cm, gifFile, 'gif', ...
+            'DelayTime', 0.3,'WriteMode','append');
+    end
 end
-
-a = annotation('textbox', [0.15 0.93 0 0], 'HorizontalAlignment', ...
-               'left','string', 'Horizon: 4 to 14 min',...
-               'LineStyle','none', 'FitBoxToText','on');
-set(a,'FontWeight', 'Bold','FontSize',10, 'Color','r')
-
-a = annotation('textbox', [0.15 0.645 0 0], 'HorizontalAlignment',...
-               'left','string', 'Horizon: 10 to 20 min',...
-               'LineStyle','none', 'FitBoxToText','on');
-set(a,'FontWeight', 'Bold','FontSize',10,'Color','r')
-
-a = annotation('textbox', [0.15 0.36 0 0], 'HorizontalAlignment',...
-               'left', 'string', 'Horizon: 20 to 30 min',...
-               'LineStyle','none', 'FitBoxToText','on');
-set(a,'FontWeight', 'Bold','FontSize',10,'Color','r')
