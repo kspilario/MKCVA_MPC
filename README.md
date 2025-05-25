@@ -22,7 +22,7 @@ The files are recommended to be accessed in the following order:
   * [Evap_CVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_MPC.ipynb) uses CVA. Outputs are saved as json files, such as [cva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/cva_SPT32_p10_out.json). 
   * [Evap_MKCVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_MPC.ipynb) uses MKCVA. Outputs are saved as json files, such as [mkcva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/mkcva_SPT32_p10_out.json).
   * [Evap_LSTM_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_LSTM_MPC.ipynb) uses LSTM. Outputs are saved as json files, such as [lstm_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/lstm_SPT32_p10_out.json).
-* [MPC_plotting](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plotting.m) makes plots from the output json files from the MPC.
+* [mpc_plot_figs](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plot_figs.m) and [mpc_plot_gifs](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plot_gifs.m) makes static plots and GIFs, respectively, from the output json files from the MPC.
 * We finally create GIF files to plot the MPC histories such as [compare_mpc_spt28](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_mpc_spt28.gif) for a setpoint of 28 and [compare_mpc_spt18](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_mpc_spt18.gif) for a setpoint of 18.
 
 ## Issues
