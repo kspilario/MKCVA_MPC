@@ -1,6 +1,8 @@
 # Fast MKCVA for Learning-based NMPC
 
-This repository contains the codes associated with the manuscript: "Fast Mixed Kernel Canonical Variate Analysis for Learning-based Nonlinear Model Predictive Control". (Under Review)
+This repository contains the codes associated with the manuscript: 
+
+Pilario and Wu (2025). "Fast Mixed Kernel Canonical Variate Analysis for Learning-based Nonlinear Model Predictive Control," Chemical Engineering Research and Design. DOI: [10.1016/j.cherd.2025.05.050](https://doi.org/10.1016/j.cherd.2025.05.050).
 
 ## Usage
 The files are recommended to be accessed in the following order:
@@ -22,7 +24,7 @@ The files are recommended to be accessed in the following order:
   * [Evap_CVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_CVA_MPC.ipynb) uses CVA. Outputs are saved as json files, such as [cva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/cva_SPT32_p10_out.json). 
   * [Evap_MKCVA_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_MKCVA_MPC.ipynb) uses MKCVA. Outputs are saved as json files, such as [mkcva_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/mkcva_SPT32_p10_out.json).
   * [Evap_LSTM_MPC](https://github.com/kspilario/MKCVA_MPC/blob/main/Evap_LSTM_MPC.ipynb) uses LSTM. Outputs are saved as json files, such as [lstm_SPT32_p10_out](https://github.com/kspilario/MKCVA_MPC/blob/main/lstm_SPT32_p10_out.json).
-* [mpc_plot_figs](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plot_figs.m) and [mpc_plot_gifs](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plot_gifs.m) makes static plots and GIFs, respectively, from the output json files from the MPC.
+* [mpc_plot_figs](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plot_figs.m) and [mpc_plot_gifs](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_plot_gifs.m) makes static plots and GIFs, respectively, from the output json files from the MPC. [fast_mkcva_results](https://github.com/kspilario/MKCVA_MPC/blob/main/fast_mkcva_results.m) and [mpc_compute_time](https://github.com/kspilario/MKCVA_MPC/blob/main/mpc_compute_time.m) were used to create figures showing the runtime comparisons in the paper. [iae_plotting](https://github.com/kspilario/MKCVA_MPC/blob/main/iae_plotting.m) was used to create the IAE comparison figure in the paper.
 * Sample GIFs are available such as [compare_mpc_spt28](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_mpc_spt28.gif) for a setpoint of 28 and [compare_mpc_spt32](https://github.com/kspilario/MKCVA_MPC/blob/main/compare_mpc_spt32.gif) for a setpoint of 32.
 
 ## Issues
